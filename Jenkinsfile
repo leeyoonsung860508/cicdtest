@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git scm update') {
 	      steps {
-	              git url: 'https://github.com/leeyoonsung/jenkinstest.git', branch: 'master'
+	              git url: 'https://github.com/leeyoonsung860508/jenkinstest.git', branch: 'master'
 		            }
 			        }
 				    stage('docker build and push') {
@@ -16,10 +16,14 @@ pipeline {
 										        stage('deploy k8s') {
 											      steps {
 											              sh '''
-												              sudo export KUBECONFIG=/etc/kubernetes/admin.conf
-													      sudo kubectl set image deployment deploy-main ctn-main=leeyoonsung/testshop:newnewmain
-													          														              --target-port=80 --name=testpipeline-svc
-															              '''
+		
+	   steps {
+	   											              sh '''
+													      												     export KUBECONFIG=/etc/kubernetes/admin.conf
+												             kubectl create deploy testpipeline --image=leeyoonsung/testweb
+             kubectl set image deployment deploy-main ctn-main=leeyoonsung/testshop:newnewmain											
+
+	'''
 				}		
 			}
 										  }
