@@ -16,12 +16,9 @@ pipeline {
 										        stage('deploy k8s') {
 											      steps {
 											              sh '''
-		
-	   steps {
-	   											              sh '''
-													      												     export KUBECONFIG=/etc/kubernetes/admin.conf
-												             kubectl create deploy testpipeline --image=leeyoonsung/testweb
-             kubectl set image deployment deploy-main ctn-main=leeyoonsung/testshop:newnewmain											
+												     export KUBECONFIG=/etc/kubernetes/admin.conf
+												     kubectl create deploy testpipeline --image=leeyoonsung/testweb
+            											     kubectl set image deployment deploy-main ctn-main=leeyoonsung/testshop:newnewmain											
 
 	'''
 				}		
