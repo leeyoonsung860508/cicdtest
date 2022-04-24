@@ -17,7 +17,7 @@ pipeline {
 											      steps {
 											              sh '''
 												     export KUBECONFIG=/etc/kubernetes/admin.conf
-												     kubectl set image deployment deploy-main ctn-main=leeyoonsung/testshop:newnewmain											
+												    kubectl set image deployment deploy-main ctn-main=leeyoonsung/testshop										
 
 	'''
 				}		
